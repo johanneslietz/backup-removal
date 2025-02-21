@@ -1,8 +1,11 @@
+#!/usr/bin/env python3
+
 import shutil
 import sys
 from datetime import date, timedelta
 from os import listdir
 from os.path import isdir, join, exists
+
 
 def purge_daily_backups(path: str, pattern: str) -> None:
     if not exists(path):
@@ -25,6 +28,7 @@ def purge_daily_backups(path: str, pattern: str) -> None:
         the_day_before = the_day_before - timedelta(days=1)
     print("Done purging daily backups.")
 
+
 if __name__ == '__main__':
     if len(sys.argv) < 2:
         print("Usage: python3 purge_daily_backups.py <backupFolder> [<pattern>]")
@@ -35,4 +39,3 @@ if __name__ == '__main__':
     else:
         pattern = '%Y-%m-%d'
     purge_daily_backups(backup_folder, pattern)
-

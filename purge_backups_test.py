@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import os
 import shutil
 import tempfile
@@ -8,6 +10,7 @@ from purge_backups import purge_daily_backups
 
 backup_folder = tempfile.mkdtemp()
 print("Using backup folder: {}".format(backup_folder))
+
 
 class PurgeBackupTestCase(unittest.TestCase):
     @classmethod
@@ -35,6 +38,7 @@ class PurgeBackupTestCase(unittest.TestCase):
         remaining_files = os.listdir(backup_folder)
         self.assertEqual(1, len(remaining_files))
         self.assertEqual(remaining_files[0], date.today().strftime('%Y-%m-%d-daily'))
+
 
 if __name__ == '__main__':
     unittest.main()
