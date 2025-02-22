@@ -26,12 +26,12 @@ def purge_daily_backups(path: str, pattern: str) -> None:
                 shutil.rmtree(dir_to_delete)
                 all_files_deleted = False
         the_day_before = the_day_before - timedelta(days=1)
-    print("Done purging daily backups.")
+    print("Purging daily backups completed.")
 
 
-if __name__ == '__main__':
+def main() -> None:
     if len(sys.argv) < 2:
-        print("Usage: python3 purge_daily_backups.py <backupFolder> [<pattern>]")
+        print("Usage: {0} <backupFolder> [<pattern>]".format(sys.argv[0]))
         exit(1)
     backup_folder = sys.argv[1]
     if len(sys.argv) > 2:
@@ -39,3 +39,7 @@ if __name__ == '__main__':
     else:
         pattern = '%Y-%m-%d'
     purge_daily_backups(backup_folder, pattern)
+
+
+if __name__ == '__main__':
+    main()
