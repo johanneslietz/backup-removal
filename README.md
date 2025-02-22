@@ -1,4 +1,4 @@
-# backup-removal
+# Backup removal for Virtualmin backups
 ## Deletes old backup directories via a Python script
 Expects a directory of daily backup directories, with a %Y-%m-%d pattern in the folder names.
 
